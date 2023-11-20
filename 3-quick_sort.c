@@ -9,9 +9,9 @@
  */
 void swap(int *a, int *b)
 {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+	int temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
 /**
@@ -25,29 +25,28 @@ void swap(int *a, int *b)
 */
 int partition(int *array, int l, int r, size_t size)
 {
-    int pivot = array[r];
-    int i = l - 1;
-    int j;
-    
-    for (j = l; j < r; j++)
-    {
-        if (array[j] < pivot)
-        {
-            i++;
-            if (i != j)
-            {
-                swap(&array[i], &array[j]);
-                print_array(array, size);
-            }
-        }
-    }
-    if (array[r] < array[i + 1])
-    {
-        swap(&array[i + 1], &array[r]);
-        print_array(array, size);
-    }
-    
-    return (i + 1);
+	int pivot = array[r];
+	int i = l - 1;
+		int j;
+
+		for (j = l; j < r; j++)
+		{
+			if (array[j] < pivot)
+			{
+				i++;
+				if (i != j)
+				{
+					swap(&array[i], &array[j]);
+					print_array(array, size);
+				}
+			}
+		}
+		if (array[r] < array[i + 1])
+		{
+			swap(&array[i + 1], &array[r]);
+			print_array(array, size);
+		}
+	return (i + 1);
 }
 
 /**
@@ -61,14 +60,14 @@ int partition(int *array, int l, int r, size_t size)
 */
 void lomuto_sort_recursion(int *array, int l, int r, size_t size)
 {
-    int pivot_index;
-    
-    if (l < r)
-    {
-        pivot_index = partition(array, l, r, size);
-        lomuto_sort_recursion(array, l, pivot_index - 1, size);
-        lomuto_sort_recursion(array, pivot_index + 1, r, size);
-    }
+	int pivot_index;
+
+	if (l < r)
+	{
+		pivot_index = partition(array, l, r, size);
+		lomuto_sort_recursion(array, l, pivot_index - 1, size);
+		lomuto_sort_recursion(array, pivot_index + 1, r, size);
+	}
 }
 
 /**
@@ -81,8 +80,8 @@ void lomuto_sort_recursion(int *array, int l, int r, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
-    if (array == NULL || size < 2)
-        return;
-    
-    lomuto_sort_recursion(array, 0, size - 1, size);
+	if (array == NULL || size < 2)
+		return;
+
+	lomuto_sort_recursion(array, 0, size - 1, size);
 }
