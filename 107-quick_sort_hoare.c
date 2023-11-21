@@ -33,17 +33,17 @@ int partition(int *array, int l, int r, size_t size)
 	{
 		do {
 			i++;
-	} while (array[i] < pivot);
+		} while (array[i] < pivot);
 
-	do {
+		do {
 		j--;
-	} while (array[j] > pivot);
+		} while (array[j] > pivot);
 
-	if (i >= j)
-		break;
+		if (i >= j)
+			break;
 		swap(&array[i], &array[j]);
+		print_array(array, size);
 	}
-	print_array(array, size);
 	return (j);
 }
 
