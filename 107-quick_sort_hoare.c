@@ -25,26 +25,30 @@ void swap(int *a, int *b)
 */
 int partition(int *array, int l, int r, size_t size)
 {
-	int pivot = array[l];
-	int i = l - 1;
-	int j = r + 1;
+	int pivot = array[r];
 
-	while (true)
+	while (l <= r)
 	{
 		do {
-			i++;
-		} while (array[i] < pivot);
+			l++;
+		} while (array[l] < pivot);
 
 		do {
-		j--;
-		} while (array[j] > pivot);
+			r--;
+		} while (array[r] > pivot);
 
-		if (i >= j)
-			break;
-		swap(&array[i], &array[j]);
-		print_array(array, size);
+		if (l <= r)
+		{
+			if (l != r)
+			{
+				swap(&array[l], &array[r]);
+				print_array(array, size);
+			}
+			r++;
+			l--;
+		}
 	}
-	return (j);
+	return (r);
 }
 
 /**
