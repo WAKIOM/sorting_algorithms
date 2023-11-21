@@ -29,13 +29,15 @@ int partition(int *array, int l, int r, size_t size)
 
 	while (l <= r)
 	{
-		do {
+		while (array[l] < pivot)
+		{
 			l++;
-		} while (array[l] < pivot);
+                }
 
-		do {
-			r--;
-		} while (array[r] > pivot);
+		while (array[r] > pivot)
+		{
+			r++;
+		}
 
 		if (l <= r)
 		{
