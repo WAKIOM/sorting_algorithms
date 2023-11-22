@@ -30,14 +30,10 @@ int partition(int *array, int l, int r, size_t size)
 	while (l <= r)
 	{
 		while (array[l] < pivot)
-		{
 			l++;
-                }
 
 		while (array[r] > pivot)
-		{
 			r--;
-		}
 
 		if (l <= r)
 		{
@@ -46,8 +42,8 @@ int partition(int *array, int l, int r, size_t size)
 				swap(&array[l], &array[r]);
 				print_array(array, size);
 			}
-			r++;
-			l--;
+			l++;
+			r--;
 		}
 	}
 	return (r);
